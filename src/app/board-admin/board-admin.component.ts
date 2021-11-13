@@ -8,7 +8,7 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardAdminComponent implements OnInit {
 
-  content: string;
+  content: string | undefined;
 
   constructor(private userService: UserService) { }
 

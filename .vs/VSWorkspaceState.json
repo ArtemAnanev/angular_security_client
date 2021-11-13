@@ -1,4 +1,11 @@
 {
-  "ExpandedNodes": [],
-  "PreviewInSolutionExplorer": false
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\home",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\home\\home.component.css",
+  "PreviewInSolutionExplorer": true
 }

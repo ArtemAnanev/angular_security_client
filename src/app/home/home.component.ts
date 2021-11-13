@@ -8,7 +8,7 @@ import { UserService } from '../_services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  content: string;
+  content: string | undefined;
 
   constructor(private userService: UserService) { }
 

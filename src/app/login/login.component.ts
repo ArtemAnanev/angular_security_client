@@ -8,8 +8,10 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  form: any = {};
+  form: any = {
+    username: null,
+    password: null
+  };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -25,7 +27,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.authService.login(this.form).subscribe(
+    const { username, password } = this.form;
+
+    this.authService.login( username, password ).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -35,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
-      err => {
+        err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }
@@ -45,5 +49,4 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
-
 }

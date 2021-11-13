@@ -11,11 +11,11 @@ import { Observable } from 'rxjs'
      constructor(private http: HttpClient) { }
 
      getPublicContent(): Observable<any> {
-       return.this.http.get(API_URL + 'all', {responseType: 'text'});
+       return this.http.get(API_URL + 'all', {responseType: 'text'});
      }
 
      getUserBoard(): Observable<any> {
-       return.this.http.get(API_URL + 'user', {responseType: 'text' });
+       return this.http.get(API_URL + 'user', {responseType: 'text' });
      }
 
   getModeratorBoard(): Observable<any> {
@@ -23,6 +23,6 @@ import { Observable } from 'rxjs'
   }
 
   getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin' {responseType: 'text'});
+    return this.http.get(API_URL + 'admin', {responseType: 'text'});
   }
 }

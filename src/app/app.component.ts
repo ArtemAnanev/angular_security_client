@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 
 @Component({
@@ -7,11 +7,14 @@ import { TokenStorageService } from './_services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private roles: string[];
+  title(title: any) {
+      throw new Error('Method not implemented.');
+  }
+  private roles: string[] | undefined;
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
-  username: string;
+  username: string | undefined;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -22,7 +25,9 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
+      // @ts-ignore
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      // @ts-ignore
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
